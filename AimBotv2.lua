@@ -6,22 +6,22 @@ local StarterGui = game:GetService("StarterGui")
 local camera = workspace.CurrentCamera
 
 StarterGui:SetCore("SendNotification", {
-    Title = "SKID by konmeo22132 (100% riel)", 
-    Text = "on Roblox",
+    Title = "Made by ArthurIOS", 
+    Text = "Made by ArthurIOS",
     Duration = 3
 })
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "konmeo22132 - NPC_Lock_GUI"
+screenGui.Name = "Lock NPC"
 screenGui.Parent = game:GetService("CoreGui")
 
 local button = Instance.new("TextButton")
-button.Name = "Konmeo22132's aim status: ON/OFF"
+button.Name = "Trạng thái Lock : ON/OFF"
 button.Size = UDim2.new(0, 150, 0, 50)
 button.Position = UDim2.new(0.5, -75, 0.9, -25)
 button.BackgroundColor3 = Color3.new(0, 0, 0)
 button.TextColor3 = Color3.new(1, 1, 1)
-button.Text = "Konmeo22132's aim status:OFF"
+button.Text = "Trạng thái Lock :OFF"
 button.Font = Enum.Font.Fantasy
 button.TextScaled = true
 button.TextSize = 20
@@ -123,7 +123,7 @@ end
 button.MouseButton1Click:Connect(function()
     npcLock = not npcLock
     if npcLock then
-        button.Text = "Konmeo22132's aim status:ON"
+        button.Text = "Trạng thái Lock :ON"
         toggleLoop = runService.RenderStepped:Connect(function()
             local npc = getClosestNPC()
             if npc and npc:FindFirstChild("Humanoid") then
@@ -153,7 +153,7 @@ button.MouseButton1Click:Connect(function()
             end
         end)
     else
-        button.Text = "Konmeo22132's aim status:OFF"
+        button.Text = "Trạng thái Lock :OFF"
         if toggleLoop then
             toggleLoop:Disconnect()
             toggleLoop = nil
