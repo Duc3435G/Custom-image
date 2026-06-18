@@ -1,0 +1,17 @@
+name: Build EXE
+on: [push, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compile
+        run: |
+          x86_64-w64-mingw32-g++ -o executor.exe main.cpp -static -lcomctl32 -luser32 -lgdi32 -lkernel32 -lole32 -luuid -lpsapi
+      - name: Create ZIP
+        run: zip executor.zip executor.exe 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: executor
+          path: executor.zip
